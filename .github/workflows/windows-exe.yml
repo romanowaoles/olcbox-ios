@@ -338,6 +338,7 @@ jobs:
           if-no-files-found: warn
 
   publish-nightly:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -367,7 +368,7 @@ jobs:
             echo "No release assets found"
             exit 1
           fi
-          release_notes="Latest desktop and Android builds from main at ${GITHUB_SHA}."
+          release_notes="Latest desktop, Android, and iOS builds from ${GITHUB_REF_NAME} at ${GITHUB_SHA}."
 
           if gh release view nightly >/dev/null 2>&1; then
             mapfile -t existing_asset_ids < <(gh api "repos/${GITHUB_REPOSITORY}/releases/tags/nightly" --jq '.assets[].id')
