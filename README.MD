@@ -12,9 +12,6 @@
 Alpha version.
 Not intended for production use.
 
-## Support
-Support options are not publicly listed. Contact the author if needed.
-
 ## Legal Notice
 This software is intended for development, testing and research purposes only.
 
